@@ -1,0 +1,86 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.753253424657535,
+        "y": 7.4433433219178085
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.8667380136986305,
+        "y": 7.428317636986302
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.5610873287671234,
+        "y": 7.022624143835617
+      },
+      "prevControl": {
+        "x": 4.432577054794522,
+        "y": 7.894113869863015
+      },
+      "nextControl": {
+        "x": 2.809803082191781,
+        "y": 6.271339897260273
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.7263698630136988,
+        "y": 5.369798801369864
+      },
+      "prevControl": {
+        "x": 3.2910574311088405,
+        "y": 6.109829935608123
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.5,
+      "rotationDegrees": -58.78159723565364
+    },
+    {
+      "waypointRelativePos": 2.0,
+      "rotationDegrees": -61.29404745659893
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "coral",
+      "waypointRelativePos": 2.0,
+      "endWaypointRelativePos": null,
+      "command": null
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -59.85861444792461
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "useDefaultConstraints": false
+}
