@@ -186,12 +186,12 @@ public Robot()
   
       //flicker/?
      if (Operater.getXButton()){
-      leftServo.set(0);
-      rightServo.set(1);
+      clawMotor.set(-0.5);
      } else if (Operater.getBButton()){
-      leftServo.set(1);
-      rightServo.set(0);
-     }
+      clawMotor.set(0.5);
+     } else if (Operater.getXButtonReleased() || Operater.getBButtonReleased()){
+      clawMotor.set(0);
+      }
 
      
 

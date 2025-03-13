@@ -59,16 +59,11 @@ public final class Constants
 
   public static final int Joint1MotorID = 19; // CAN ID for Joint 1 motor   this one
   public static final int Joint2MotorID = 24; 
-<<<<<<< HEAD
-  public static final int cageMotorID = 20; // CAN ID for cage motor   
-  public static final int intakeMotorID2 = 21; // CAN ID for intake motor 2   
-  public static final int ballintakeID = 22;
-=======
+
   public static final int cageMotorID = 13; // CAN ID for cage motor   
   public static final int intakeMotorID2 = 15; // CAN ID for intake motor 2   
   public static final int ballintakeID = 16;
   public static final int clawMotorID = 19; // CAN ID for claw motor
->>>>>>> 713b9cabee7b0b5eb303c2fe28d647076fdffa84
 
   }
   public static class PIDConstants {
