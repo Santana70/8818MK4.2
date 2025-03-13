@@ -16,7 +16,7 @@ import com.revrobotics.spark.SparkMax;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-
+import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.wpilibj.XboxController;
 
@@ -35,7 +35,7 @@ private Timer disabledTimer;
 
 private XboxController Driver;
 private XboxController Operater;
-
+private TalonFX clawMotor;
 private SparkMax cageMotor;
 
 private SparkMax telescopicMotor;
@@ -69,6 +69,7 @@ public Robot()
     telescopicMotor = new SparkMax(Constants.OperatorConstants.intakeMotorID2, MotorType.kBrushless);
     ballMotor = new SparkMax(Constants.OperatorConstants.ballintakeID, MotorType.kBrushless);
 
+    clawMotor = new TalonFX(Constants.OperatorConstants.clawMotorID);
   }
 
   public static Robot getInstance()
