@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.geometry.Pose2d;
@@ -22,6 +23,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.JogJoint1Command;
+import frc.robot.commands.L4elevator;
 import frc.robot.commands.ResetEncoderCommand;
 import frc.robot.commands.SetJoint1AngleCommand;
 import frc.robot.commands.SetRestAngleCommand;
@@ -40,6 +42,7 @@ import swervelib.SwerveInputStream;
  */
 public class RobotContainer
 {
+   private final TalonFX liftMotor = new TalonFX(Constants.OperatorConstants.clawMotorID); // Change the ID to match your setup
    private SendableChooser<String> autoChooser;
      // The robot's subsystems and commands are defined here...
      final Joint1Subsystem joint1Subsystem = new Joint1Subsystem();
@@ -112,19 +115,29 @@ public class RobotContainer
    */
   public RobotContainer()
   {
-    // setupAutonomous();
+     setupAutonomous();
     // Configure the trigger bindings
     configureBindings();
     DriverStation.silenceJoystickConnectionWarning(true);
     NamedCommands.registerCommand("test", Commands.print("I EXIST"));
+    registerCommands();
 
+
+  }
+  private void setupAutonomous() {
     autoChooser = new SendableChooser<>();
     autoChooser.addOption("Red 1", "Red 1");
     autoChooser.addOption("Red 2", "Red 2");
     autoChooser.addOption("Blue 1", "Blue 1");
     autoChooser.addOption("Red push", "Red push");
+    autoChooser.addOption("coral left l4", "coral left l4");
     SmartDashboard.putData(autoChooser);
-  }
+}
+    private void registerCommands() {
+        NamedCommands.registerCommand("L4elevator", new L4elevator(liftMotor, 0.5, 6000));
+        NamedCommands.registerCommand("test", Commands.print("I EXIST"));
+
+      }
 
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
