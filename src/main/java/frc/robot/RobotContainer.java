@@ -49,9 +49,9 @@ public class RobotContainer
          new CommandXboxController(OperatorConstants.kOperatorControllerPort);
    
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  final         CommandXboxController driverXbox = new CommandXboxController(0);
+  final CommandXboxController driverXbox = new CommandXboxController(0);
   // The robot's subsystems and commands are defined here...
-  private final SwerveSubsystem       drivebase  = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(),
+  private final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(),
                                                                                 "swerve/neo"));
 
   /**
@@ -119,9 +119,9 @@ public class RobotContainer
     NamedCommands.registerCommand("test", Commands.print("I EXIST"));
 
     autoChooser = new SendableChooser<>();
-    autoChooser.addOption("Blue 1", "Blue 1");
-    autoChooser.addOption("Solo", "Solo");
     autoChooser.addOption("Red 1", "Red 1");
+    autoChooser.addOption("Red 2", "Red 2");
+    autoChooser.addOption("Blue 1", "Blue 1");
     autoChooser.addOption("Red push", "Red push");
     SmartDashboard.putData(autoChooser);
   }
@@ -135,15 +135,13 @@ public class RobotContainer
    */
   private void configureBindings()
   {
-    Command driveFieldOrientedDirectAngle      = drivebase.driveFieldOriented(driveDirectAngle);
+    Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
     Command driveFieldOrientedAnglularVelocity = drivebase.driveFieldOriented(driveAngularVelocity);
     Command driveRobotOrientedAngularVelocity  = drivebase.driveFieldOriented(driveRobotOriented);
-    Command driveSetpointGen = drivebase.driveWithSetpointGeneratorFieldRelative(
-        driveDirectAngle);
-    Command driveFieldOrientedDirectAngleKeyboard      = drivebase.driveFieldOriented(driveDirectAngleKeyboard);
+    Command driveSetpointGen = drivebase.driveWithSetpointGeneratorFieldRelative(driveDirectAngle);
+    Command driveFieldOrientedDirectAngleKeyboard = drivebase.driveFieldOriented(driveDirectAngleKeyboard);
     Command driveFieldOrientedAnglularVelocityKeyboard = drivebase.driveFieldOriented(driveAngularVelocityKeyboard);
-    Command driveSetpointGenKeyboard = drivebase.driveWithSetpointGeneratorFieldRelative(
-        driveDirectAngleKeyboard);
+    Command driveSetpointGenKeyboard = drivebase.driveWithSetpointGeneratorFieldRelative(driveDirectAngleKeyboard);
 
     if (RobotBase.isSimulation())
     {
@@ -209,9 +207,9 @@ public class RobotContainer
      // Assign button X to reset the encoder
   //   m_driverController.x().onTrue(new ResetEncoderCommand(joint1Subsystem));
 
-     m_driverController.rightBumper().whileTrue(new JogJoint1Command(joint1Subsystem, 0.4));
+     m_driverController.rightBumper().whileTrue(new JogJoint1Command(joint1Subsystem, 0.5));
 
-     m_driverController.leftBumper().whileTrue(new JogJoint1Command(joint1Subsystem, -0.3));
+     m_driverController.leftBumper().whileTrue(new JogJoint1Command(joint1Subsystem, -0.35));
 
      m_driverController.a().whileTrue(new JogJoint1Command(joint1Subsystem, 0.55));
   }
